@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>activitywatch-server</Name>
+  <Repository>ghcr.io/googilyboogily/activitywatch-server:latest</Repository>
+  <Registry>https://github.com/GoogilyBoogily/activitywatch-server/pkgs/container/activitywatch-server</Registry>
+  <Network>aw-net</Network>
+  <Support>https://github.com/GoogilyBoogily/activitywatch-server/issues</Support>
+  <Project>https://activitywatch.net</Project>
+  <Overview>ActivityWatch central aggregator (aw-server-rust). Read-only unified UI; the companion activitywatch-sync container imports each device's synced sqlite files. The REST API has no auth, so this is reached only through Caddy/Authentik on an internal docker network - do NOT publish port 5600 to the host or internet. The image CMD already starts `aw-server --host 0.0.0.0`.</Overview>
+  <Category>Productivity: Tools:</Category>
+  <Icon>https://raw.githubusercontent.com/ActivityWatch/activitywatch/master/media/logo/logo.png</Icon>
+  <Config Name="Data" Target="/root/.local/share/activitywatch" Default="/mnt/user/appdata/activitywatch/data" Mode="rw" Description="ActivityWatch datastore (aggregated events)" Type="Path" Display="always" Required="true">/mnt/user/appdata/activitywatch/data</Config>
+</Container>
