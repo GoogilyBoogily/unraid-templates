@@ -9,7 +9,7 @@
   <Overview>ActivityWatch aw-sync daemon. Every ~5 minutes it reconciles the per-device sqlite files in the shared Syncthing folder into the activitywatch-server container over its REST API. Deploy alongside activitywatch-server on the same docker network. The sync folder is written to each pass, so it must be mounted read-write.</Overview>
   <Category>Productivity: Tools:</Category>
   <Icon>https://raw.githubusercontent.com/ActivityWatch/activitywatch/master/media/logo/logo.png</Icon>
-  <!-- aw-sync global flags (--host/--port/--sync-dir) MUST precede the `daemon` subcommand. The daemon takes no further options. -->
+  <!-- aw-sync global flags must precede the daemon subcommand; the daemon takes no further options. -->
   <PostArgs>aw-sync --host activitywatch-server --port 5600 --sync-dir /sync daemon</PostArgs>
   <Config Name="Sync folder (read-write)" Target="/sync" Default="/mnt/user/Sync/ActivityWatchSync" Mode="rw" Description="The Syncthing folder holding every device's per-device sqlite files. Must be read-write." Type="Path" Display="always" Required="true">/mnt/user/Sync/ActivityWatchSync</Config>
 </Container>
